@@ -56,7 +56,8 @@ const routes = [
     {
         path: '/profile',
         name: 'Profile',
-        component: ProfileView
+        component: ProfileView,
+        meta: { requiresAuth: true }
     },
     {
         path: '/settings',
@@ -94,5 +95,21 @@ const router = createRouter({
         return { top: 0 }
     }
 })
+
+router.beforeEach((to, from, next) => {
+    // 1. Gidilecek sayfa giriş yapmayı gerektiriyor mu?
+    const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+    
+    // 2. LocalStorage'dan user_token'ı al (Geçen adımda bulduğumuz anahtar)
+    const isAuthenticated = localStorage.getItem('user_token'); 
+
+    if (requiresAuth && !isAuthenticated) {
+        // Sayfa korumalı ve kullanıcı giriş yapmamış -> Login'e yolla
+        next('/login');
+    } else {
+        // Sorun yok, içeri geçebilir
+        next();
+    }
+});
 
 export default router
