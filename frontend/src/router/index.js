@@ -44,10 +44,10 @@ const routes = [
         component: () => import('../views/ResetPasswordView.vue')
     },
     {
-    path: '/verify-email',
-    name: 'VerifyEmail',
-    component: () => import('../views/VerifyEmailView.vue')
-   },
+        path: '/verify-email',
+        name: 'VerifyEmail',
+        component: () => import('../views/VerifyEmailView.vue')
+    },
     {
         path: '/signup',
         name: 'Signup',
@@ -62,7 +62,8 @@ const routes = [
     {
         path: '/settings',
         name: 'Settings',
-        component: SettingsView
+        component: SettingsView,
+        meta: { requiresAuth: true }
     },
     {
         path: '/help',
@@ -99,9 +100,9 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     // 1. Gidilecek sayfa giriş yapmayı gerektiriyor mu?
     const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-    
+
     // 2. LocalStorage'dan user_token'ı al (Geçen adımda bulduğumuz anahtar)
-    const isAuthenticated = localStorage.getItem('user_token'); 
+    const isAuthenticated = localStorage.getItem('user_token');
 
     if (requiresAuth && !isAuthenticated) {
         // Sayfa korumalı ve kullanıcı giriş yapmamış -> Login'e yolla
