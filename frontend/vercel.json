@@ -4,5 +4,16 @@
       "source": "/api/:path*",
       "destination": "http://circle-9srg.onrender.com/api/:path*"
     }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=0"
+        }
+      ]
+    }
   ]
 }
