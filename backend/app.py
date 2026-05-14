@@ -6,6 +6,24 @@ import os
 # static_url_path='': Serve these files at the root URL (e.g. /assets/...)
 app = Flask(__name__, static_folder='static', static_url_path='')
 
+# ---------------------------------------------------------------
+# TC_11 – Güvenlik Başlıkları: CSP, X-Frame-Options, HSTS
+# Her yanıta otomatik olarak eklenir; mevcut hiçbir kodu etkilemez.
+# ---------------------------------------------------------------
+@app.after_request
+def add_security_headers(response):
+    # HSTS – Tarayıcıyı HTTPS kullanmaya zorlar (1 yıl, alt alan adlarına da uygulanır)
+    response.headers['Strict-Transport-Security'] = (
+        'max-age=31536000; includeSubDomains'
+    )
+    # Clickjacking'e karşı koruma: sadece aynı origin iframe'e izin ver
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    # CSP – Vue.js'i (inline stil/script, eval, blob, data URI) bozmayacak kadar esnek
+    response.headers['Content-Security-Policy'] = (
+        "default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;"
+    )
+    return response
+
 @app.route('/')
 def index():
     """Serve the main Vue entry point."""
