@@ -12,10 +12,7 @@ app = Flask(__name__, static_folder='static', static_url_path='')
 # ---------------------------------------------------------------
 @app.after_request
 def add_security_headers(response):
-    # HSTS – Tarayıcıyı HTTPS kullanmaya zorlar (1 yıl, alt alan adlarına da uygulanır)
-    response.headers['Strict-Transport-Security'] = (
-        'max-age=31536000; includeSubDomains'
-    )
+
     # Clickjacking'e karşı koruma: sadece aynı origin iframe'e izin ver
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     # CSP – Vue.js'i (inline stil/script, eval, blob, data URI) bozmayacak kadar esnek
