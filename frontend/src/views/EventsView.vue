@@ -192,7 +192,7 @@
 
         <div class="form-field">
           <label>Capacity</label>
-          <input type="number" v-model="formData.capacity" min="0" />
+          <input type="number" id="eventCapacity" name="capacity" v-model="formData.capacity" min="1" required />
         </div>
 
         <div class="form-field">
@@ -478,6 +478,12 @@ const submitForm = async () => {
     return;
   }
 
+  const capacityNum = Number(formData.capacity);
+  if (!formData.capacity || isNaN(capacityNum) || capacityNum <= 0) {
+    toast.error("Capacity must be at least 1");
+    return;
+  }
+
   const fd = new FormData();
   // Backend hem 'name' hem 'title' alabilsin diye ikisini de ekliyoruz
   
@@ -485,7 +491,7 @@ const submitForm = async () => {
   fd.append("date", formData.date);
   fd.append("time", formData.time);
   fd.append("location", formData.location);
-  fd.append("capacity", formData.capacity);
+  fd.append("capacity", capacityNum);
   fd.append("description", formData.description);
   fd.append("community_id", formData.community_id);
 
