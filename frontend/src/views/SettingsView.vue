@@ -35,7 +35,7 @@
               type="button" 
               @click="selectAvatar(seed)"
             >
-              <img :src="avatarUrl(seed)" />
+              <img :src="avatarUrl(seed)" :alt="'Avatar option ' + seed" />
             </button>
           </div>
 

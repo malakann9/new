@@ -42,7 +42,7 @@
         <img
           class="community-image"
           :src="community.image"
-          alt=""
+          :alt="community.name ? community.name + ' community image' : 'Community image'"
         />
 
         <div class="community-main">
