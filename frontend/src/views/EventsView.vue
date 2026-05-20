@@ -136,9 +136,11 @@
         <p class="upload-text">Max 120 MB, PNG, JPEG</p>
 
         <!-- ✅ IMPORTANT: This input is now connected and saves a real File -->
-        <label class="upload-btn">
+        <label class="upload-btn" for="eventImage">
           Browse File
           <input
+            id="eventImage"
+            name="eventImage"
             type="file"
             accept="image/png, image/jpeg"
             hidden
@@ -156,29 +158,29 @@
 
         <div class="form-row">
           <div class="form-field">
-            <label>Event Name</label>
-            <input type="text" v-model="formData.name" required />
+            <label for="eventName">Event Name</label>
+            <input type="text" id="eventName" name="eventName" v-model="formData.name" required />
           </div>
 
           <div class="form-field">
-            <label>Date</label>
-            <input type="date" v-model="formData.date" required />
+            <label for="eventDate">Date</label>
+            <input type="date" id="eventDate" name="eventDate" v-model="formData.date" required />
           </div>
         </div>
         <div class="form-field">
-          <label>Time</label>
-          <input type="time" v-model="formData.time" required />
+          <label for="eventTime">Time</label>
+          <input type="time" id="eventTime" name="eventTime" v-model="formData.time" required />
         </div>
         <div class="form-row">
           <div class="form-field">
-            <label>Location</label>
-            <input type="text" v-model="formData.location" />
+            <label for="eventLocation">Location</label>
+            <input type="text" id="eventLocation" name="eventLocation" v-model="formData.location" />
           </div>
 
           <!-- ✅ REPLACED: no more hardcoded clubs -->
           <div class="form-field">
-            <label>Club</label>
-            <select v-model="formData.community_id" :disabled="communitySelectLocked" required>
+            <label for="eventClub">Club</label>
+            <select id="eventClub" name="eventClub" v-model="formData.community_id" :disabled="communitySelectLocked" required>
               <option value="">Select a club</option>
               <option v-for="c in communityOptions" :key="c.id" :value="String(c.id)">
                 {{ c.name }}
@@ -191,13 +193,13 @@
         </div>
 
         <div class="form-field">
-          <label>Capacity</label>
+          <label for="eventCapacity">Capacity</label>
           <input type="number" id="eventCapacity" name="capacity" v-model="formData.capacity" min="1" required />
         </div>
 
         <div class="form-field">
-          <label>Description</label>
-          <textarea v-model="formData.description" rows="4"></textarea>
+          <label for="eventDescription">Description</label>
+          <textarea id="eventDescription" name="eventDescription" v-model="formData.description" rows="4"></textarea>
         </div>
 
         <div class="modal-actions">

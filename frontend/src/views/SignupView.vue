@@ -13,29 +13,29 @@
 
                 <el-form ref="formRef" :model="form" :rules="rules" label-position="top" class="signup-form">
                     <div class="form-row">
-                        <el-form-item label="First Name" prop="firstName">
-                            <el-input v-model="form.firstName" placeholder="Enter your first name"></el-input>
+                        <el-form-item label="First Name" prop="firstName" label-for="signup-firstName">
+                            <el-input id="signup-firstName" name="firstName" v-model="form.firstName" placeholder="Enter your first name"></el-input>
                         </el-form-item>
-                        <el-form-item label="Last Name" prop="lastName">
-                            <el-input v-model="form.lastName" placeholder="Enter your last name"></el-input>
+                        <el-form-item label="Last Name" prop="lastName" label-for="signup-lastName">
+                            <el-input id="signup-lastName" name="lastName" v-model="form.lastName" placeholder="Enter your last name"></el-input>
                         </el-form-item>
                     </div>
-                    <el-form-item label="Username" prop="username">
-                        <el-input v-model="form.username" placeholder="Enter your username"></el-input>
+                    <el-form-item label="Username" prop="username" label-for="signup-username">
+                        <el-input id="signup-username" name="username" v-model="form.username" placeholder="Enter your username"></el-input>
                     </el-form-item>
 
-                    <el-form-item label="Major" prop="major">
-                        <el-input v-model="form.major" placeholder="e.g. Computer Science"></el-input>
+                    <el-form-item label="Major" prop="major" label-for="signup-major">
+                        <el-input id="signup-major" name="major" v-model="form.major" placeholder="e.g. Computer Science"></el-input>
                     </el-form-item>
 
-                    <el-form-item label="Email" prop="email">
-                        <el-input v-model="form.email" placeholder="Enter your e-mail"></el-input>
+                    <el-form-item label="Email" prop="email" label-for="signup-email">
+                        <el-input id="signup-email" name="email" v-model="form.email" placeholder="Enter your e-mail"></el-input>
                     </el-form-item>
-                    <el-form-item label="Password" prop="password">
-                        <el-input v-model="form.password" type="password" show-password placeholder="Create a password"></el-input>
+                    <el-form-item label="Password" prop="password" label-for="signup-password">
+                        <el-input id="signup-password" name="password" v-model="form.password" type="password" show-password placeholder="Create a password"></el-input>
                     </el-form-item>
-                    <el-form-item label="Confirm Password" prop="confirmPassword">
-                        <el-input v-model="form.confirmPassword" type="password" show-password placeholder="Re-enter your password"></el-input>
+                    <el-form-item label="Confirm Password" prop="confirmPassword" label-for="signup-confirmPassword">
+                        <el-input id="signup-confirmPassword" name="confirmPassword" v-model="form.confirmPassword" type="password" show-password placeholder="Re-enter your password"></el-input>
                     </el-form-item>
                     <el-form-item>
                         <el-button class="signup-button" type="success" :loading="isSubmitting" @click="submit">

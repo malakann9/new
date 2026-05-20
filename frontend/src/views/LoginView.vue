@@ -16,22 +16,26 @@
             
                 
                 <form id="signin-form" @submit.prevent="handleLogin">
-                    <div class="input-group">
-                        <input type="text" v-model="username" placeholder="User name or email">
+                    <div class="input-group" style="display: block; max-width: 642px; margin: 0 auto 20px;">
+                        <label for="signin-username" style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 15px; color: #333;">Username or Email</label>
+                        <input type="text" id="signin-username" name="username" v-model="username" placeholder="User name or email">
                     </div>
 
-                    <div class="input-group password-group">
-                        <input :type="showPassword ? 'text' : 'password'" id="signin-password" placeholder="Enter password" v-model="password">
-                        <button type="button" class="password-toggle-btn" :aria-label="showPassword ? 'Hide password' : 'Show password'" @click="showPassword = !showPassword">
-                            <i class="fas" :class="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
-                        </button>
+                    <div class="input-group password-group" style="margin-bottom: 20px;">
+                        <label for="signin-password" style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 15px; color: #333;">Password</label>
+                        <div style="position: relative;">
+                            <input :type="showPassword ? 'text' : 'password'" id="signin-password" name="password" placeholder="Enter password" v-model="password">
+                            <button type="button" class="password-toggle-btn" :aria-label="showPassword ? 'Hide password' : 'Show password'" @click="showPassword = !showPassword">
+                                <i class="fas" :class="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <button type="submit" class="signin-button">Sign in</button>
 
                     <div class="options">
                         <div class="remember-me">
-                            <input type="checkbox" id="remember" checked>
+                            <input type="checkbox" id="remember" name="remember" checked>
                             <label for="remember">Remember me</label>
                         </div>
                         <span class="forgot-password" @click="$router.push('/forgot-password')" style="cursor: pointer; position: relative; z-index: 10;">Forget password?</span>
