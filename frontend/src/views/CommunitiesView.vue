@@ -8,10 +8,12 @@
 
       <!-- big "Search communities..." bar -->
       <div class="community-search-shell">
+        <label for="communitySearchInput" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Search communities</label>
         <i class="fas fa-search" aria-hidden="true"></i>
         <input
           v-model="searchQuery"
           id="communitySearchInput"
+          name="search"
           type="search"
           placeholder="Search communities..."
           aria-label="Search communities"
@@ -104,26 +106,28 @@
 
       <form @submit.prevent="submitClub" class="modal-form">
         <div class="form-field">
-          <label>Club Name</label>
-          <input type="text" v-model="formData.name" required />
+          <label for="modalClubName">Club Name</label>
+          <input type="text" id="modalClubName" name="clubName" v-model="formData.name" required />
         </div>
 
         <div class="form-field">
-          <label>Description</label>
-          <textarea v-model="formData.description" rows="3" required></textarea>
+          <label for="modalClubDescription">Description</label>
+          <textarea id="modalClubDescription" name="clubDescription" v-model="formData.description" rows="3" required></textarea>
         </div>
 
         <!-- ✅ Website / Instagram URL -->
         <div class="form-field">
-          <label>Instagram / Website Link</label>
-          <input type="url" v-model="formData.website_url" placeholder="https://instagram.com/..." />
+          <label for="modalClubWebsite">Instagram / Website Link</label>
+          <input type="url" id="modalClubWebsite" name="clubWebsite" v-model="formData.website_url" placeholder="https://instagram.com/..." />
         </div>
 
         <!-- ✅ Image File slot -->
         <div class="form-field">
-          <label>Club Image</label>
+          <label for="modalClubImage">Club Image</label>
           <div class="file-upload-box" @click="triggerFileInput" :class="{ 'has-file': !!previewUrl }">
             <input
+              id="modalClubImage"
+              name="clubImage"
               ref="fileInput"
               type="file"
               accept="image/png, image/jpeg"

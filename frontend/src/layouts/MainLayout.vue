@@ -47,7 +47,10 @@
 
         <div class="nav-center">
           <form class="global-search" role="search" aria-label="Search for an Event" @submit.prevent="handleSearch">
+            <label for="global-search-input" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Search for an Event</label>
             <input 
+              id="global-search-input"
+              name="search"
               type="search" 
               placeholder="Search for an Event" 
               aria-label="Search for an Event" 

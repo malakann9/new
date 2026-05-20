@@ -57,8 +57,8 @@
 
           <form @submit.prevent="saveProfileInfo" class="profile-form">
             <div class="form-field">
-              <label>Full Name</label>
-              <input type="text" v-model="profileName" required />
+              <label for="profileFullName">Full Name</label>
+              <input type="text" id="profileFullName" name="fullName" v-model="profileName" required />
             </div>
 
             <div class="section-actions">
@@ -75,9 +75,9 @@
 
           <form @submit.prevent="savePassword" class="password-form">
             <div class="form-field">
-              <label>Current Password</label>
+              <label for="currentPasswordInput">Current Password</label>
               <div class="input-with-icon">
-                <input :type="showCurrentPass ? 'text' : 'password'" v-model="currentPassword" required />
+                <input :type="showCurrentPass ? 'text' : 'password'" id="currentPasswordInput" name="currentPassword" v-model="currentPassword" required />
                 <button type="button" class="toggle-visibility" @click="showCurrentPass = !showCurrentPass">
                   <i class="fas fa-eye"></i>
                 </button>
@@ -85,9 +85,9 @@
             </div>
 
             <div class="form-field">
-              <label>New Password</label>
+              <label for="newPasswordInput">New Password</label>
               <div class="input-with-icon">
-                <input :type="showNewPass ? 'text' : 'password'" v-model="newPassword" required />
+                <input :type="showNewPass ? 'text' : 'password'" id="newPasswordInput" name="newPassword" v-model="newPassword" required />
                 <button type="button" class="toggle-visibility" @click="showNewPass = !showNewPass">
                   <i class="fas fa-eye"></i>
                 </button>
@@ -95,9 +95,9 @@
             </div>
 
             <div class="form-field">
-              <label>Confirm Password</label>
+              <label for="confirmPasswordInput">Confirm Password</label>
               <div class="input-with-icon">
-                <input :type="showConfirmPass ? 'text' : 'password'" v-model="confirmPassword" required />
+                <input :type="showConfirmPass ? 'text' : 'password'" id="confirmPasswordInput" name="confirmPassword" v-model="confirmPassword" required />
                 <button type="button" class="toggle-visibility" @click="showConfirmPass = !showConfirmPass">
                   <i class="fas fa-eye"></i>
                 </button>

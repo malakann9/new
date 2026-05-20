@@ -2,8 +2,10 @@
   <aside class="filters">
       <h3>Filter</h3>
       <div class="filter-group">
-        <label class="filter-label">University</label>
+        <label class="filter-label" for="universityFilter">University</label>
         <el-select 
+          id="universityFilter"
+          name="universityFilter"
           :model-value="activeType" 
           @update:model-value="updateType" 
           placeholder="Select University" 
@@ -20,8 +22,10 @@
       </div>
 
       <div class="filter-group">
-        <label class="filter-label">Sort by Date</label>
+        <label class="filter-label" for="sortFilter">Sort by Date</label>
         <el-select 
+          id="sortFilter"
+          name="sortFilter"
           :model-value="sortOrder" 
           @update:model-value="updateSort" 
           placeholder="Sort Order" 
@@ -36,6 +40,8 @@
       <div class="filter-item date-filter-container">
           <label for="event-date">Date</label>
           <el-date-picker
+              id="event-date"
+              name="event-date"
               v-model="dateRange"
               type="daterange"
               range-separator="-"

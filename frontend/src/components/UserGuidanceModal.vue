@@ -15,8 +15,8 @@
         </div>
         
         <div class="modal-footer">
-          <label class="checkbox-container">
-            <input type="checkbox" v-model="dontShowAgain">
+          <label class="checkbox-container" for="dontShowGuidance">
+            <input type="checkbox" id="dontShowGuidance" name="dontShowGuidance" v-model="dontShowAgain">
             <span class="checkmark"></span>
             Don't show this again
           </label>

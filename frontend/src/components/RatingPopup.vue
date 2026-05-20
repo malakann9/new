@@ -17,11 +17,11 @@
           <el-rate v-model="rating" size="large" :colors="['#fcc419', '#fcc419', '#fcc419']" />
         </div>
         <div class="thoughts-section">
-          <p class="thoughts-question">Do you have any thoughts you'd like to share?</p>
-          <textarea v-model="feedbackText" placeholder="Tell us about your experience..." class="feedback-textarea" rows="5"></textarea>
+          <label class="thoughts-question" for="feedback-text" style="display: block;">Do you have any thoughts you'd like to share?</label>
+          <textarea id="feedback-text" name="feedback" v-model="feedbackText" placeholder="Tell us about your experience..." class="feedback-textarea" rows="5"></textarea>
           <div class="anonymous-option">
-            <label class="checkbox-label">
-              <input type="checkbox" v-model="isAnonymous" />
+            <label class="checkbox-label" for="anonymous-feedback">
+              <input type="checkbox" id="anonymous-feedback" name="anonymous" v-model="isAnonymous" />
               <span class="checkbox-text">Hide my name (Post Anonymously)</span>
             </label>
           </div>

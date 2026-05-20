@@ -89,8 +89,11 @@
         <div class="leaderboard-header">
           <h2>Community Leaderboard</h2>
           <div class="search-box">
+            <label for="profileSearchInput" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Search community or president</label>
             <i class="fas fa-search search-icon"></i>
             <input 
+              id="profileSearchInput"
+              name="search"
               type="text" 
               v-model="searchQuery" 
               placeholder="Search community, president..." 
