@@ -13,8 +13,9 @@
           <p class="description">Enter your email address and we'll send you a link to reset your password.</p>
           
           <form id="forgot-form" @submit.prevent="handleReset">
-            <div class="input-group">
-               <input type="email" v-model="email" placeholder="Enter your email" required>
+            <div class="input-group" style="display: block; max-width: 642px; margin: 0 auto 40px;">
+               <label for="forgot-email" style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 15px; color: #333;">Email Address</label>
+               <input type="email" id="forgot-email" name="email" v-model="email" placeholder="Enter your email" required>
             </div>
 
             <button type="submit" class="signin-button" :disabled="isSubmitting">

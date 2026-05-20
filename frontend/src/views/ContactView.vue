@@ -168,17 +168,17 @@
             <form @submit.prevent="handleSubmit">
               <div class="form-group">
                 <label class="form-label" for="name">Your name *</label>
-                <input id="name" v-model="form.name" class="form-input" required />
+                <input id="name" name="name" v-model="form.name" class="form-input" required />
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="email">Email *</label>
-                <input id="email" type="email" v-model="form.email" class="form-input" required />
+                <input id="email" name="email" type="email" v-model="form.email" class="form-input" required />
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="issue">Describe the issue *</label>
-                <textarea id="issue" v-model="form.issue" class="form-textarea" required></textarea>
+                <textarea id="issue" name="issue" v-model="form.issue" class="form-textarea" required></textarea>
               </div>
 
               <button type="submit" class="btn-primary">Send report</button>

@@ -44,6 +44,7 @@
                 </label>
                 <el-input
                   id="clubName"
+                  name="clubName"
                   v-model="form.clubName"
                   class="form-input"
                   required
@@ -55,7 +56,7 @@
 
               <div class="form-group">
                 <label class="form-label" for="university">University <span>*</span></label>
-                <el-select id="university" v-model="form.university" class="form-select" required>
+                <el-select id="university" name="university" v-model="form.university" class="form-select" required>
                   <el-option value="">Select university</el-option>
                   <el-option value="Ankara Yıldırım Beyazıt University">Ankara Yıldırım Beyazıt University</el-option>
                   <el-option value="Ankara University">Ankara University</el-option>
@@ -76,7 +77,7 @@
                 <label class="form-label" for="clubType">
                   Club type <span>*</span>
                 </label>
-                <el-select id="clubType" v-model="form.clubType" class="form-select" required>
+                <el-select id="clubType" name="clubType" v-model="form.clubType" class="form-select" required>
                   <el-option value="">Select type</el-option>
                   <el-option value="official">Official university club</el-option>
                   <el-option value="community">Student community / interest group</el-option>
@@ -90,7 +91,7 @@
                 <label class="form-label" for="category">
                   Category <span>*</span>
                 </label>
-                <el-select id="category" v-model="form.category" class="form-select" required>
+                <el-select id="category" name="category" v-model="form.category" class="form-select" required>
                   <el-option value="">Select category</el-option>
                   <el-option value="Academic">Academic</el-option>
                   <el-option value="Technology">Technology</el-option>
@@ -112,6 +113,7 @@
               <el-input
                 type="textarea"
                 id="description"
+                name="description"
                 v-model="form.description"
                 class="form-textarea"
                 placeholder="Tell us briefly what your club is about and who it is for."
@@ -129,6 +131,7 @@
               <el-input
                 type="textarea" 
                 id="events"
+                name="events"
                 v-model="form.events"
                 class="form-textarea"
                 placeholder="Example: weekly meetups, workshops, competitions, trips, online sessions..."
@@ -145,6 +148,7 @@
                 </label>
                 <el-input
                   id="contactName"
+                  name="contactName"
                   v-model="form.contactName"
                   class="form-input"
                   required
@@ -160,6 +164,7 @@
                 </label>
                 <el-input
                   id="studentNumber"
+                  name="studentNumber"
                   v-model="form.studentNumber"
                   class="form-input"
                   :placeholder="studentNumberPlaceholder"
@@ -174,6 +179,7 @@
                 </label>
                 <el-input
                   id="email"
+                  name="email"
                   v-model="form.email"
                   type="email"
                   class="form-input"
@@ -190,6 +196,7 @@
                 </label>
                 <el-input
                   id="instagram"
+                  name="instagram"
                   v-model="form.instagram"
                   class="form-input"
                   placeholder="https://instagram.com/yourclub"
@@ -203,6 +210,7 @@
               </label>
               <el-input
                 id="otherLink"
+                name="otherLink"
                 v-model="form.otherLink"
                 class="form-input"
                 placeholder="Website, Telegram, WhatsApp, Discord..."
@@ -218,6 +226,7 @@
               </label>
               <input
                 id="clubImage"
+                name="clubImage"
                 type="file"
                 class="form-file"
                 accept=".png,.jpg,.jpeg"
@@ -229,8 +238,8 @@
             </div>
 
             <div class="form-footer-row">
-              <label class="checkbox-row">
-                <el-checkbox type="checkbox" v-model="form.confirm" required />
+              <label class="checkbox-row" for="confirmRepresentative">
+                <el-checkbox id="confirmRepresentative" name="confirmRepresentative" type="checkbox" v-model="form.confirm" required />
                 <span>
                   I confirm that I am an official representative of this club /
                   community and the information is correct.

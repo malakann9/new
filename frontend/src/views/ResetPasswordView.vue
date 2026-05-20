@@ -7,18 +7,24 @@
           <p class="description">Create a new password for your account.</p>
           
           <form id="reset-form" @submit.prevent="handleResetConfirm">
-            <div class="input-group password-group">
-                <input :type="showPassword ? 'text' : 'password'" placeholder="New Password" v-model="password" required minlength="6">
-                <button type="button" class="password-toggle-btn" @click="showPassword = !showPassword">
-                    <span class="material-icons">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
-                </button>
+            <div class="input-group password-group" style="margin-bottom: 20px;">
+                <label for="reset-password" style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 15px; color: #333;">New Password</label>
+                <div style="position: relative;">
+                    <input :type="showPassword ? 'text' : 'password'" id="reset-password" name="password" placeholder="New Password" v-model="password" required minlength="6">
+                    <button type="button" class="password-toggle-btn" @click="showPassword = !showPassword" aria-label="Toggle password visibility">
+                        <span class="material-icons">{{ showPassword ? 'visibility_off' : 'visibility' }}</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="input-group password-group">
-                <input :type="showConfirmPassword ? 'text' : 'password'" placeholder="Confirm New Password" v-model="confirmPassword" required minlength="6">
-                <button type="button" class="password-toggle-btn" @click="showConfirmPassword = !showConfirmPassword">
-                    <span class="material-icons">{{ showConfirmPassword ? 'visibility_off' : 'visibility' }}</span>
-                </button>
+            <div class="input-group password-group" style="margin-bottom: 20px;">
+                <label for="reset-confirmPassword" style="display: block; text-align: left; margin-bottom: 8px; font-weight: 600; font-size: 15px; color: #333;">Confirm New Password</label>
+                <div style="position: relative;">
+                    <input :type="showConfirmPassword ? 'text' : 'password'" id="reset-confirmPassword" name="confirmPassword" placeholder="Confirm New Password" v-model="confirmPassword" required minlength="6">
+                    <button type="button" class="password-toggle-btn" @click="showConfirmPassword = !showConfirmPassword" aria-label="Toggle password visibility">
+                        <span class="material-icons">{{ showConfirmPassword ? 'visibility_off' : 'visibility' }}</span>
+                    </button>
+                </div>
             </div>
 
             <button type="submit" class="signin-button" :disabled="isSubmitting">
