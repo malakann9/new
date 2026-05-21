@@ -22,7 +22,7 @@
           <div class="current-avatar-wrap">
             <div class="avatar-label">Current avatar</div>
             <div class="current-avatar">
-              <img :src="avatarUrl(currentSeed)" alt="Current avatar" />
+              <img :src="avatarUrl(currentSeed)" alt="Current avatar" loading="lazy" />
             </div>
           </div>
 
@@ -35,7 +35,7 @@
               type="button" 
               @click="selectAvatar(seed)"
             >
-              <img :src="avatarUrl(seed)" :alt="'Avatar option ' + seed" />
+              <img :src="avatarUrl(seed)" :alt="'Avatar option ' + seed" loading="lazy" />
             </button>
           </div>
 

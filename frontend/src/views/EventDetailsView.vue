@@ -11,7 +11,7 @@
       </div>
 
       <div class="image-container">
-        <img :src="event.image" :alt="event.alt" class="event-image" />
+        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" />
       </div>
 
       <div class="tab-controls">

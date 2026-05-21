@@ -101,6 +101,7 @@ onMounted(() => {
               src="https://api.dicebear.com/7.x/notionists/svg?seed=circle1"
               alt="Profile"
               class="nav-avatar"
+              loading="lazy"
             />
           </button>
         </div>

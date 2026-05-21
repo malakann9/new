@@ -45,6 +45,7 @@
           class="community-image"
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
+          loading="lazy"
         />
 
         <div class="community-main">
@@ -136,7 +137,7 @@
             />
             
             <div v-if="previewUrl" class="preview-container">
-              <img :src="previewUrl" alt="Preview" class="preview-img" />
+              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" />
               <button type="button" class="remove-file-btn" @click.stop="removeFile">
                 <i class="fas fa-times"></i>
               </button>

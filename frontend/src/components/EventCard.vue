@@ -1,7 +1,7 @@
 <template>
   <div class="event-card" v-if="event">
       <div class="card-image-wrapper">
-        <img :src="event.image" :alt="event.alt">
+        <img :src="event.image" :alt="event.alt" loading="lazy">
       </div>
       <div class="card-content">
           <div class="card-info">

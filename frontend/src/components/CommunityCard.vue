@@ -4,6 +4,7 @@
       class="community-image"
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"
+      loading="lazy"
     />
 
     <div class="community-main">
