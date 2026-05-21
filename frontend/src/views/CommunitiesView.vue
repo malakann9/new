@@ -37,7 +37,7 @@
     <!-- Communities list -->
     <section class="community-list" id="communityList">
       <article
-        v-for="community in filteredCommunities"
+        v-for="(community, index) in filteredCommunities"
         :key="community.id"
         class="community-card"
       >
@@ -45,7 +45,7 @@
           class="community-image"
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
-          loading="lazy"
+          :loading="index < 4 ? 'eager' : 'lazy'"
         />
 
         <div class="community-main">

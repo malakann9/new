@@ -1,7 +1,12 @@
 <template>
   <div class="event-card" v-if="event">
       <div class="card-image-wrapper">
-        <img :src="event.image" :alt="event.alt" loading="lazy">
+        <img 
+          :src="event.image" 
+          :alt="event.alt" 
+          :loading="isPriority ? 'eager' : 'lazy'"
+          :fetchpriority="isPriority ? 'high' : 'auto'"
+        >
       </div>
       <div class="card-content">
           <div class="card-info">
@@ -32,6 +37,10 @@ const props = defineProps({
   },
   seeAll: {
     type: Function
+  },
+  isPriority: {
+    type: Boolean,
+    default: false
   }
 })
 </script>

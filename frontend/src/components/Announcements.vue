@@ -19,6 +19,8 @@
               :src="getImage('image' + item + '.jpg')" 
               fit="cover" 
               class="banner-image"
+              :loading="item === 1 ? 'eager' : 'lazy'"
+              :fetchpriority="item === 1 ? 'high' : 'auto'"
             />
           </div>
         </el-carousel-item>
