@@ -30,13 +30,13 @@
             </div>
           </div>
 
-          <router-link to="/" class="logo">
-            <span class="logo-letter">C</span>
-            <span class="logo-letter">i</span>
-            <span class="logo-letter">r</span>
-            <span class="logo-letter">C</span>
-            <span class="logo-letter">l</span>
-            <span class="logo-letter">e</span>
+          <router-link to="/" class="logo" aria-label="CirCle Home">
+            <span class="logo-letter" aria-hidden="true">C</span>
+            <span class="logo-letter" aria-hidden="true">i</span>
+            <span class="logo-letter" aria-hidden="true">r</span>
+            <span class="logo-letter" aria-hidden="true">C</span>
+            <span class="logo-letter" aria-hidden="true">l</span>
+            <span class="logo-letter" aria-hidden="true">e</span>
           </router-link>
 
           <nav class="tabs" aria-label="Primary navigation">
