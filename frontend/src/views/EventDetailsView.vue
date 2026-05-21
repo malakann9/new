@@ -97,7 +97,7 @@
 
             <div class="summary-actions">
               <div v-if="!event.registered" style="text-align: right;">
-                <span style="font-size: 14px; color: #999; display: flex; align-items: center; gap: 5px;">
+                <span style="font-size: 14px; color: #666666; display: flex; align-items: center; gap: 5px;">
                   <i class="fas fa-info-circle"></i>
                   <span>Only participants can review.</span>
                 </span>
@@ -372,7 +372,7 @@ const fetchParticipants = async () => {
 .register-btn { width: 100%; padding: 18px; background: var(--brand); color: white; border: none; border-radius: 12px; font-size: 18px; font-weight: 600; cursor: pointer; margin-top: 40px; transition: all 0.2s; box-shadow: 0 4px 12px rgba(36, 29, 29, 0.2); }
 .register-btn:hover { background: var(--brand-600); transform: translateY(-2px); }
 .register-btn.registered { background: var(--brand-200); color: var(--brand); box-shadow: none; cursor: default; }
-.register-btn.event-ended { background: #e5e7eb; color: #9ca3af; cursor: not-allowed; box-shadow: none; }
+.register-btn.event-ended { background: #e5e7eb; color: #6b7280; cursor: not-allowed; box-shadow: none; }
 .reviews-summary { background: var(--brand-200); padding: 24px; border-radius: 16px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--brand-200); }
 .rating-score { display: flex; flex-direction: column; gap: 4px; }
 .rating-score .score { font-size: 36px; font-weight: 800; color: var(--brand-600); line-height: 1; }
@@ -388,7 +388,7 @@ const fetchParticipants = async () => {
 .reviewer-info { display: flex; align-items: center; gap: 12px; }
 .avatar { width: 40px; height: 40px; background: var(--brand-200); color: var(--brand); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
 .reviewer-info .name { display: block; font-weight: 600; color: var(--brand-600); }
-.reviewer-info .date { font-size: 12px; color: #9ca3af; }
+.reviewer-info .date { font-size: 12px; color: #6b7280; }
 .review-stars { color: #e5e7eb; font-size: 14px; }
 .review-stars .filled { color: #fbbf24; }
 .review-text { color: #555; line-height: 1.6; margin: 0; }

@@ -545,7 +545,7 @@ const savePassword = async () => {
 
 .form-field label {
   font-size: 12px;
-  color: #777f7a;
+  color: #5C6661;
 }
 
 .input-with-icon {
@@ -583,7 +583,7 @@ const savePassword = async () => {
 
 .toggle-visibility i {
   font-size: 14px;
-  color: #8b9390;
+  color: #5C6360;
 }
 
 /* RESPONSIVE */

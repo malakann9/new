@@ -674,7 +674,7 @@ const submitClub = async () => {
 
 .form-field label {
   font-size: 11px;
-  color: #777f7a;
+  color: #5C6661;
 }
 
 .modal-form input,

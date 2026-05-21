@@ -205,7 +205,7 @@ main {
 
 /* Hesap Yok Linki */
 .no-account {
-  color: #7F8B9E;
+  color: #5C6B80;
     font-size: 20px;
     font-weight: 400; /* Figma'ya göre 500'den 400'e güncellendi */
     
@@ -216,7 +216,7 @@ main {
 }
 
 .no-account a {
-    color: #FF9E4A;
+    color: #D97706;
     font-size: 20px;
     font-weight: 700;
     text-decoration: underline;
@@ -418,14 +418,14 @@ main {
 }
 
 .forgot-password {
-    color: #FF9E4A;
+    color: #D97706;
     font-size: 20px;
     font-weight: 500;
 }
 
 /* Hesap Yok Linki */
 .no-account {
-  color: #7F8B9E;
+  color: #5C6B80;
     font-size: 20px;
     font-weight: 400; /* Figma'ya göre 500'den 400'e güncellendi */
     
@@ -436,7 +436,7 @@ main {
 }
 
 .no-account a {
-color: #FF9E4A;
+color: #D97706;
     font-size: 20px;
     font-weight: 700;
     text-decoration: underline;

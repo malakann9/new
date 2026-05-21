@@ -899,7 +899,7 @@ const register = async (event) => {
 
 .upload-text {
   font-size: 12px;
-  color: #909aa0;
+  color: #5C676D;
   margin-bottom: 10px;
 }
 
@@ -940,7 +940,7 @@ const register = async (event) => {
 
 .form-field label {
   font-size: 11px;
-  color: #777f7a;
+  color: #5C6661;
 }
 
 .modal-form input,

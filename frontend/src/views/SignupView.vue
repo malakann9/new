@@ -312,7 +312,7 @@ main {
 
 /* Links */
 .no-account {
-    color: #7F8B9E;
+    color: #5C6B80;
     font-size: 20px;
     font-weight: 400;
     margin-top: 20px;
@@ -320,7 +320,7 @@ main {
 }
 
 .no-account a {
-    color: #FF9E4A;
+    color: #D97706;
     font-size: 20px;
     font-weight: 700;
     text-decoration: underline;
