@@ -428,6 +428,7 @@ const submitClub = async () => {
   border: none;
   outline: none;
   flex: 1;
+  min-width: 0;
   font-size: 15px;
   background: transparent;
   color: #111111;
@@ -524,6 +525,11 @@ const submitClub = async () => {
   font-size: 13px;
   color: var(--muted);
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 
@@ -544,6 +550,8 @@ const submitClub = async () => {
 .website-link {
   color: var(--brand);
   text-decoration: none;
+  display: inline-block;
+  vertical-align: bottom;
   max-width: 520px;
   overflow: hidden;
   text-overflow: ellipsis;

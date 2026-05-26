@@ -220,6 +220,7 @@ const onFilterChange = (val) => {
 /* Text container on the right */
 .dialog-text-container {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
