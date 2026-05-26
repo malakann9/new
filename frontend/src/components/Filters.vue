@@ -47,8 +47,9 @@
               range-separator="-"
               start-placeholder="Start"
               end-placeholder="End"
-              size="default"
-              style="max-width:200px"
+              size="large"
+              style="width: 100%; max-width: 100%"
+              fit-input-width
           />                        
       </div>
   </aside> 
@@ -111,6 +112,14 @@ watch(dateRange, (nv) => {
   box-shadow: 0 3px 10px rgba(0,0,0,.06);
   height: fit-content;
   min-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    min-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .filters h3 {

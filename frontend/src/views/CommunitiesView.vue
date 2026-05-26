@@ -439,9 +439,11 @@ const submitClub = async () => {
 }
 
 .filters-row {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  gap: 12px;
   margin-bottom: 18px;
 }
 
@@ -449,6 +451,7 @@ const submitClub = async () => {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .filter-pill {

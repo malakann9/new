@@ -612,6 +612,7 @@ const register = async (event) => {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .filter-pill {
