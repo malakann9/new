@@ -6,6 +6,7 @@
           :alt="event.alt" 
           :loading="isPriority ? 'eager' : 'lazy'"
           :fetchpriority="isPriority ? 'high' : 'auto'"
+          @error="(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Image+Unavailable' }"
         >
       </div>
       <div class="card-content">

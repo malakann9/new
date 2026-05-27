@@ -5,6 +5,7 @@
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"
       loading="lazy"
+      @error="(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Image+Unavailable' }"
     />
 
     <div class="community-main">
