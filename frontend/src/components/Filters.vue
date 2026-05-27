@@ -120,6 +120,20 @@ watch(dateRange, (nv) => {
     width: 100%;
     box-sizing: border-box;
   }
+
+  /* TC-C02: iPhone Safari form optimizations */
+  :deep(.el-input__inner) {
+    font-size: 16px !important;
+  }
+  :deep(.el-select),
+  :deep(.el-input),
+  :deep(.el-date-editor) {
+    width: 100% !important;
+    min-height: 44px !important;
+  }
+  :deep(.el-input__wrapper) {
+    min-height: 44px !important;
+  }
 }
 
 .filters h3 {

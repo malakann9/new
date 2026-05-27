@@ -11,7 +11,7 @@
       </div>
 
       <div class="image-container">
-        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/1200x600/e2e8f0/64748b?text=Image+Unavailable' }" />
+        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
       </div>
 
       <div class="tab-controls">

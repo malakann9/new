@@ -46,7 +46,7 @@
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
           :loading="index < 4 ? 'eager' : 'lazy'"
-          @error="(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Image+Unavailable' }"
+          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
         />
 
         <div class="community-main">
@@ -138,7 +138,7 @@
             />
             
             <div v-if="previewUrl" class="preview-container">
-              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Image+Unavailable' }" />
+              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
               <button type="button" class="remove-file-btn" @click.stop="removeFile">
                 <i class="fas fa-times"></i>
               </button>
