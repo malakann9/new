@@ -46,7 +46,7 @@
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
           :loading="index < 4 ? 'eager' : 'lazy'"
-          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+          @error="handleImageError"
         />
 
         <div class="community-main">
@@ -138,7 +138,7 @@
             />
             
             <div v-if="previewUrl" class="preview-container">
-              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="handleImageError" />
               <button type="button" class="remove-file-btn" @click.stop="removeFile">
                 <i class="fas fa-times"></i>
               </button>
@@ -364,9 +364,21 @@ const submitClub = async () => {
   }
 }
 
+const handleImageError = (e) => {
+  const img = e.target
+  img.onerror = null
+  img.src = '/placeholder.png'
+  img.classList.add('fallback-loaded')
+}
+
 </script>
 
 <style scoped>
+
+img {
+  background-color: #e2e8f0;
+}
+
 /* Your CSS is mostly fine; I added ONLY website styles */
 
 .page-wrap {

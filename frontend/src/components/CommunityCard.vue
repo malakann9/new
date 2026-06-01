@@ -5,7 +5,7 @@
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"
       loading="lazy"
-      @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+      @error="handleImageError"
     />
 
     <div class="community-main">
@@ -54,9 +54,21 @@ const toggleJoin = (community) => {
   // User is authenticated, proceed with toggle
   store.joinCommunity(community)
 }
+const handleImageError = (e) => {
+  const img = e.target
+  img.onerror = null
+  img.src = '/placeholder.png'
+  img.classList.add('fallback-loaded')
+}
+
 </script>
 
 <style scoped>
+
+img {
+  background-color: #e2e8f0;
+}
+
 .community-card {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr) auto;

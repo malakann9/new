@@ -11,7 +11,7 @@
       </div>
 
       <div class="image-container">
-        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="handleImageError" />
       </div>
 
       <div class="tab-controls">
@@ -342,9 +342,21 @@ const fetchParticipants = async () => {
     loadingParticipants.value = false
   }
 }
+const handleImageError = (e) => {
+  const img = e.target
+  img.onerror = null
+  img.src = '/placeholder.png'
+  img.classList.add('fallback-loaded')
+}
+
 </script>
 
 <style scoped>
+
+img {
+  background-color: #e2e8f0;
+}
+
 /* CSS Stilleri Aynen Korundu */
 .page-wrap { max-width: 800px; margin: 40px auto; padding: 0 20px; font-family: 'Inter', sans-serif; color: var(--brand-600); }
 .back-btn { background: none; border: none; color: #555; font-size: 16px; cursor: pointer; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; padding: 0; }

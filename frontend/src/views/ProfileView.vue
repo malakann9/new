@@ -177,7 +177,7 @@
 
         <div class="slider-track" ref="upcomingTrack">
           <article class="card event-card" v-for="event in upcomingEvents" :key="event.id">
-            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="handleImageError" />
             <div class="event-body">
               <h4>{{ event.name }}</h4>
               <p>{{ event.date }}</p>
@@ -214,7 +214,7 @@
             v-for="event in registeredEvents" 
             :key="event.id"
           >
-            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="handleImageError" />
             <div class="activity-content">
               <h4>{{ event.name }}</h4>
               <p>{{ event.date }} • {{ event.location }}</p>
@@ -245,7 +245,7 @@
 
         <div class="slider-track" ref="pastTrack">
           <article class="card event-card" v-for="event in pastEvents" :key="event.id">
-            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="handleImageError" />
             <div class="event-body">
               <h4>{{ event.name }}</h4>
               <p>{{ event.date }}</p>
@@ -359,7 +359,7 @@
         </div>
         <div class="seeall-grid">
           <article class="card event-card" v-for="event in pastEvents" :key="event.id">
-            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+            <img :src="event.image" class="event-cover" :alt="event.name ? event.name + ' event cover' : 'Event cover image'" loading="lazy" @error="handleImageError" />
             <div class="event-body">
               <h4>{{ event.name }}</h4>
               <p>{{ event.date }}</p>
@@ -883,9 +883,21 @@ const handleRatingSubmit = (payload) => {
   currentFeedback.value = ''
   currentAnonymous.value = false
 }
+const handleImageError = (e) => {
+  const img = e.target
+  img.onerror = null
+  img.src = '/placeholder.png'
+  img.classList.add('fallback-loaded')
+}
+
 </script>
 
 <style scoped>
+
+img {
+  background-color: #e2e8f0;
+}
+
 /* =========================
    DESIGN TOKENS
    ========================= */

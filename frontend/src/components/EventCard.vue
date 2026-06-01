@@ -6,7 +6,7 @@
           :alt="event.alt" 
           :loading="isPriority ? 'eager' : 'lazy'"
           :fetchpriority="isPriority ? 'high' : 'auto'"
-          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+          @error="handleImageError"
         >
       </div>
       <div class="card-content">
@@ -44,9 +44,21 @@ const props = defineProps({
     default: false
   }
 })
+const handleImageError = (e) => {
+  const img = e.target
+  img.onerror = null
+  img.src = '/placeholder.png'
+  img.classList.add('fallback-loaded')
+}
+
 </script>
 
 <style scoped>
+
+img {
+  background-color: #e2e8f0;
+}
+
 /* Scoped styles can be used here if needed, but we are relying on global style.css for consistency */
 /* However, for component-specific structure, we can add some here */
 
