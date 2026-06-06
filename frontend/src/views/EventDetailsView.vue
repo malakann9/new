@@ -11,7 +11,7 @@
       </div>
 
       <div class="image-container">
-        <img v-if="!imageFailed" :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="imageFailed = true" />
+        <img v-if="!imageFailed && event.image" :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="imageFailed = true" />
         <img v-else src="/placeholder.png" alt="Image Unavailable" class="event-image" fetchpriority="high" />
       </div>
 

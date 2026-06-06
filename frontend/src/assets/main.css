@@ -12,6 +12,77 @@
     background-color: #ffffff !important;
 }
 
+/* ── Filters sidebar: mobile Element Plus overrides ──────────────────────
+   These must live here (global) because Vue scoped :deep() rules are
+   unreliable inside @media blocks in some Vite/vue-loader versions.
+   Scoped to .filters so they don't bleed into other el-select instances.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* Kill the internal min-width on the select trigger so it can shrink. */
+.filters .el-select__wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* v1-style Element Plus: select wraps an el-input */
+.filters .el-select .el-input__wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Prevent the selected label / placeholder from expanding the row. */
+.filters .el-select__selected-item,
+.filters .el-select__placeholder {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  min-width: 0 !important;
+}
+
+/* Daterange picker has its own hardcoded min-width. */
+.filters .el-date-editor--daterange {
+  min-width: 0 !important;
+  width: 100% !important;
+}
+
+@media (max-width: 768px) {
+  /* Prevent iOS/Android font-size zoom on focus */
+  .filters .el-input__inner,
+  .filters .el-select__input {
+    font-size: 16px !important;
+  }
+
+  /* Switch el-select from inline-flex to block so width: 100% fills the row */
+  .filters .el-select {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Full-width containers with min 44px touch target */
+  .filters .el-input,
+  .filters .el-date-editor {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+  }
+
+  .filters .el-select__wrapper,
+  .filters .el-input__wrapper,
+  .filters .el-date-editor .el-range-input {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* ── End Filters overrides ────────────────────────────────────────────── */
+
 /* Accessibility: Enforce minimum font size */
 p,
 span,

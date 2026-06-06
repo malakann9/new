@@ -1,7 +1,7 @@
 <template>
   <article class="community-card">
     <img
-      v-if="!imageFailed"
+      v-if="!imageFailed && community.image"
       class="community-image"
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"

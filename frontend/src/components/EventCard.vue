@@ -1,9 +1,9 @@
 <template>
   <div class="event-card" v-if="event">
       <div class="card-image-wrapper">
-        <img 
-          v-if="!imageFailed"
-          :src="event.image" 
+        <img
+          v-if="!imageFailed && event.image"
+          :src="event.image"
           :alt="event.alt" 
           :loading="isPriority ? 'eager' : 'lazy'"
           :fetchpriority="isPriority ? 'high' : 'auto'"

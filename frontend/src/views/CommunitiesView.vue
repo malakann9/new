@@ -42,7 +42,7 @@
         class="community-card"
       >
         <img
-          v-if="!failedImages[community.id]"
+          v-if="!failedImages[community.id] && community.image"
           class="community-image"
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"

@@ -114,25 +114,27 @@ watch(dateRange, (nv) => {
   min-width: 250px;
 }
 
+/* Element Plus overrides moved to main.css (global) to avoid scoped
+   CSS interference. Only layout rules stay here. */
+
 @media (max-width: 768px) {
   .filters {
-    min-width: 100%;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .filter-group {
+    display: block;
     width: 100%;
     box-sizing: border-box;
   }
 
-  /* TC-C02: iPhone Safari form optimizations */
-  :deep(.el-input__inner) {
-    font-size: 16px !important;
-  }
-  :deep(.el-select),
-  :deep(.el-input),
-  :deep(.el-date-editor) {
-    width: 100% !important;
-    min-height: 44px !important;
-  }
-  :deep(.el-input__wrapper) {
-    min-height: 44px !important;
+  .filter-item {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
