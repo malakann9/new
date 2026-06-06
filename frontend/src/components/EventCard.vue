@@ -2,11 +2,17 @@
   <div class="event-card" v-if="event">
       <div class="card-image-wrapper">
         <img 
+          v-if="!imageFailed"
           :src="event.image" 
           :alt="event.alt" 
           :loading="isPriority ? 'eager' : 'lazy'"
           :fetchpriority="isPriority ? 'high' : 'auto'"
-          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+          @error="imageFailed = true"
+        >
+        <img 
+          v-else
+          src="/placeholder.png" 
+          alt="Image Unavailable"
         >
       </div>
       <div class="card-content">
@@ -30,6 +36,7 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue'
 import EventDialog from './EventDialog.vue'
 
 const props = defineProps({
@@ -45,6 +52,11 @@ const props = defineProps({
   }
 })
 
+const imageFailed = ref(false)
+
+watch(() => props.event?.image, () => {
+  imageFailed.value = false
+})
 </script>
 
 <style scoped>

@@ -1,11 +1,19 @@
 <template>
   <article class="community-card">
     <img
+      v-if="!imageFailed"
       class="community-image"
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"
       loading="lazy"
-      @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+      @error="imageFailed = true"
+    />
+    <img
+      v-else
+      class="community-image"
+      src="/placeholder.png"
+      alt="Image Unavailable"
+      loading="lazy"
     />
 
     <div class="community-main">
@@ -31,6 +39,7 @@
 </template>
 
 <script setup>
+import { ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { store } from '../store.js'
 
@@ -39,6 +48,12 @@ const props = defineProps({
     type: Object,
     required: true
   }
+})
+
+const imageFailed = ref(false)
+
+watch(() => props.community?.image, () => {
+  imageFailed.value = false
 })
 
 const router = useRouter()

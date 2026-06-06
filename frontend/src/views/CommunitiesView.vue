@@ -42,11 +42,19 @@
         class="community-card"
       >
         <img
+          v-if="!failedImages[community.id]"
           class="community-image"
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
           :loading="index < 4 ? 'eager' : 'lazy'"
-          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
+          @error="failedImages[community.id] = true"
+        />
+        <img
+          v-else
+          class="community-image"
+          src="/placeholder.png"
+          alt="Image Unavailable"
+          :loading="index < 4 ? 'eager' : 'lazy'"
         />
 
         <div class="community-main">
@@ -138,7 +146,8 @@
             />
             
             <div v-if="previewUrl" class="preview-container">
-              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+              <img v-if="!previewImageFailed" :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="previewImageFailed = true" />
+              <img v-else src="/placeholder.png" alt="Preview Unavailable" class="preview-img" loading="lazy" />
               <button type="button" class="remove-file-btn" @click.stop="removeFile">
                 <i class="fas fa-times"></i>
               </button>
@@ -187,10 +196,16 @@ const isSubmitting = ref(false)
 const isEditMode = ref(false)
 const editingCommunityId = ref(null)
 
+const failedImages = reactive({})
+const previewImageFailed = ref(false)
 
 const fileInput = ref(null)
 const selectedFile = ref(null)
 const previewUrl = ref(null)
+
+watch(previewUrl, () => {
+  previewImageFailed.value = false
+})
 
 const formData = reactive({
   name: '',

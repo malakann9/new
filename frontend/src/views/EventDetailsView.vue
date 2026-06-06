@@ -11,7 +11,8 @@
       </div>
 
       <div class="image-container">
-        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
+        <img v-if="!imageFailed" :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="imageFailed = true" />
+        <img v-else src="/placeholder.png" alt="Image Unavailable" class="event-image" fetchpriority="high" />
       </div>
 
       <div class="tab-controls">
@@ -209,6 +210,8 @@ const showRatingPopup = ref(false)
 const activeTab = ref('details')
 const isRegistering = ref(false)
 
+const imageFailed = ref(false)
+
 const reviewsList = ref([])
 const participantsList = ref([])
 const loadingParticipants = ref(false)
@@ -217,6 +220,10 @@ const eventId = parseInt(route.params.id)
 
 const event = computed(() => {
   return store.events.find(e => e.id === eventId)
+})
+
+watch(() => event.value?.image, () => {
+  imageFailed.value = false
 })
 
 // ✅ sonsuz satırı engelleyen güvenli getter
