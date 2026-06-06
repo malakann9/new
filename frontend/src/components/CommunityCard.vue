@@ -5,7 +5,7 @@
       :src="community.image"
       :alt="community.name ? community.name + ' community image' : 'Community image'"
       loading="lazy"
-      @error="handleImageError"
+      @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
     />
 
     <div class="community-main">
@@ -53,12 +53,6 @@ const toggleJoin = (community) => {
   
   // User is authenticated, proceed with toggle
   store.joinCommunity(community)
-}
-const handleImageError = (e) => {
-  const img = e.target
-  img.onerror = null
-  img.src = '/placeholder.png'
-  img.classList.add('fallback-loaded')
 }
 
 </script>

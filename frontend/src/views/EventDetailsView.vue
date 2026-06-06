@@ -11,7 +11,7 @@
       </div>
 
       <div class="image-container">
-        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="handleImageError" />
+        <img :src="event.image" :alt="event.alt" class="event-image" fetchpriority="high" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
       </div>
 
       <div class="tab-controls">
@@ -341,12 +341,6 @@ const fetchParticipants = async () => {
   } finally {
     loadingParticipants.value = false
   }
-}
-const handleImageError = (e) => {
-  const img = e.target
-  img.onerror = null
-  img.src = '/placeholder.png'
-  img.classList.add('fallback-loaded')
 }
 
 </script>

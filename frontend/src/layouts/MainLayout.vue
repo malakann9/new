@@ -310,6 +310,9 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
   margin-right: 48px;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
@@ -445,6 +448,27 @@ body {
 
 .sign-in-btn:hover {
   opacity: 0.8;
+}
+
+/* Tablet / Small Laptop Responsive Navbar */
+@media (max-width: 950px) {
+  .logo {
+    margin-right: 20px;
+    font-size: 32px;
+  }
+  .tabs {
+    gap: 16px;
+  }
+  .tab {
+    font-size: 15px;
+  }
+  .global-search {
+    min-width: 200px;
+    width: 35vw;
+  }
+  .nav-inner {
+    gap: 10px;
+  }
 }
 
 /* ------------ CUTE WALKING CAT ------------ */

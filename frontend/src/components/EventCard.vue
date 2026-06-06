@@ -6,7 +6,7 @@
           :alt="event.alt" 
           :loading="isPriority ? 'eager' : 'lazy'"
           :fetchpriority="isPriority ? 'high' : 'auto'"
-          @error="handleImageError"
+          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
         >
       </div>
       <div class="card-content">
@@ -44,12 +44,6 @@ const props = defineProps({
     default: false
   }
 })
-const handleImageError = (e) => {
-  const img = e.target
-  img.onerror = null
-  img.src = '/placeholder.png'
-  img.classList.add('fallback-loaded')
-}
 
 </script>
 

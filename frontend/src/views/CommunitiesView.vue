@@ -46,7 +46,7 @@
           :src="community.image"
           :alt="community.name ? community.name + ' community image' : 'Community image'"
           :loading="index < 4 ? 'eager' : 'lazy'"
-          @error="handleImageError"
+          @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }"
         />
 
         <div class="community-main">
@@ -138,7 +138,7 @@
             />
             
             <div v-if="previewUrl" class="preview-container">
-              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="handleImageError" />
+              <img :src="previewUrl" alt="Preview" class="preview-img" loading="lazy" @error="(e) => { e.target.onerror = null; e.target.src = '/placeholder.png' }" />
               <button type="button" class="remove-file-btn" @click.stop="removeFile">
                 <i class="fas fa-times"></i>
               </button>
@@ -349,8 +349,14 @@ const submitClub = async () => {
     }
 
     if (!res.ok) {
-      const err = await res.json().catch(() => ({}))
-      throw new Error(err.error || "Operation failed")
+      let errorText = "Operation failed";
+      try {
+        const err = await res.json();
+        errorText = err.error || err.msg || err.message || `Server Error: ${res.status} ${res.statusText}`;
+      } catch (e) {
+        errorText = `Server Error: ${res.status} ${res.statusText}`;
+      }
+      throw new Error(errorText);
     }
 
     await loadCommunities()
@@ -364,12 +370,6 @@ const submitClub = async () => {
   }
 }
 
-const handleImageError = (e) => {
-  const img = e.target
-  img.onerror = null
-  img.src = '/placeholder.png'
-  img.classList.add('fallback-loaded')
-}
 
 </script>
 
